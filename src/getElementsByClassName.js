@@ -32,7 +32,7 @@
 
 // };
 
-var getElementsByClassNam = function(className) {
+var getElementsByClassName = function(className) {
   //inputs: string
   //outputs: an array of nodes
   //assumptions: remember that nodes are array like object
@@ -46,18 +46,21 @@ var getElementsByClassNam = function(className) {
     for (var i = 0; i < nodes.length; i++) {   
     //assign element to node
       var node = nodes[i];
-      console.log(node);
-    }
-    
-    if  (node !== undefined) {
+
       //condition if nodes has child nodes and childnodes has className property
-      if (node.childNode && node.childNode.className) {
+      if (node.childNode && node.className === className) {
         results.push(node);
   
       }
-      //     send children of node back into function
-      getChildNodes(node);
+
+      // send children of node back into function
+      if (node.children) {
+        getChildNodes(node);
+      }
     }
+    
+      
+  
      
 
   };
