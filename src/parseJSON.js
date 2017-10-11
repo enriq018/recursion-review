@@ -3,5 +3,22 @@
 
 // but you're not, so you'll write it from scratch:
 var parseJSON = function(json) {
-  // your code goes here
+  if (parseInt(json) !== NaN) {
+    return parseInt(json);
+  }
+  if (json === 'true') {
+    return true;
+  }
+  if (json === 'false') {
+    return false;
+  }
+
+  if (json === 'null') {
+    return null;
+  }
+
+  if (json === 'undefined') {
+    return undefined;
+  }
+
 };
